@@ -18,7 +18,13 @@ const getElementViewport = async (
 	return null;
 };
 
+const validURL = (url: string): boolean =>
+	new URL(url).host === "interactive.guim.co.uk";
+
 export const handler = async (url: string) => {
+	if (!validURL(url)) {
+		throw new Error(`Not a valid URL`);
+	}
 	const browser = await puppeteer.launch({
 		headless: true,
 		defaultViewport: {
