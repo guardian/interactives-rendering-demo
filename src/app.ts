@@ -1,4 +1,9 @@
-import puppeteer from "puppeteer";
+/*
+See https://github.com/alixaxel/chrome-aws-lambda/wiki/HOWTO:-Local-Development#workaround
+for why this package works locally
+*/
+import chromium from "chrome-aws-lambda";
+import type * as puppeteer from "puppeteer-core";
 
 type Viewport = {
 	width: number;
@@ -25,7 +30,7 @@ export const handler = async (url: string) => {
 	if (!validURL(url)) {
 		throw new Error(`Not a valid URL`);
 	}
-	const browser = await puppeteer.launch({
+	const browser = await chromium.puppeteer.launch({
 		headless: true,
 		defaultViewport: {
 			width: 670,
