@@ -57,5 +57,5 @@ export const handler = async (url: string) => {
 };
 
 handler(
-	"https://interactive.guim.co.uk/uploader/embed/2022/01/worldpop-zip/giv-825mk6yQah7DFxK/"
+	"https://interactive.guim.co.uk/charts/embed/jan/2017-01-30T05:53:41/embed.html"
 );
